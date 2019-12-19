@@ -16,6 +16,9 @@ dependencies:
   # The Font Awesome Icon pack
   font_awesome_flutter: ^8.5.0
 
+  # A set of widgets that can be used to define a readable responsive UI for widgets.
+  responsive_builder: ^0.1.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
