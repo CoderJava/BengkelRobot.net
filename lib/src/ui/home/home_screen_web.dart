@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:website_bengkel_robot/src/extension/hover_extensions.dart';
 
 class HomeScreenWeb extends StatefulWidget {
@@ -185,21 +186,15 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
               _buildWidgetSizedBox(height: 28.0),
               Wrap(
                 children: <Widget>[
-                  _buildWidgetIconSocialMedia(FontAwesomeIcons.facebook, Colors.white, 36.0, () {
-                    // TODO: do something in here
-                  }),
+                  _buildWidgetIconSocialMedia(FontAwesomeIcons.facebookF, Colors.white, 36.0, 'https://www.facebook.com/kolonel.yudisetiawan'),
                   _buildWidgetSizedBox(width: 72.0),
-                  _buildWidgetIconSocialMedia(FontAwesomeIcons.twitter, Colors.white, 36.0, () {
-                    // TODO: do something in here  
-                  }),
+                  _buildWidgetIconSocialMedia(FontAwesomeIcons.twitter, Colors.white, 36.0, 'https://www.twitter.com/CoderKotlin'),
                   _buildWidgetSizedBox(width: 72.0),
-                  _buildWidgetIconSocialMedia(FontAwesomeIcons.github, Colors.white, 36.0, () {
-                    // TODO: do something in here
-                  }),
+                  _buildWidgetIconSocialMedia(FontAwesomeIcons.github, Colors.white, 36.0, 'https://github.com/coderjava'),
                   _buildWidgetSizedBox(width: 72.0),
-                  _buildWidgetIconSocialMedia(FontAwesomeIcons.instagram, Colors.white, 36.0, () {
-                    // TODO: do something in here
-                  }),
+                  _buildWidgetIconSocialMedia(FontAwesomeIcons.mediumM, Colors.white, 36.0, 'https://medium.com/@kolonel.yudisetiawan'),
+                  _buildWidgetSizedBox(width: 72.0),
+                  _buildWidgetIconSocialMedia(FontAwesomeIcons.linkedinIn, Colors.white, 36.0, 'https://www.linkedin.com/in/yudi-setiawan-179401131/'),
                 ],
               )
             ],
@@ -209,9 +204,11 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
     );
   }
 
-  Widget _buildWidgetIconSocialMedia(IconData icon, Color color, double size, GestureTapCallback onTap) {
+  Widget _buildWidgetIconSocialMedia(IconData icon, Color color, double size, String url) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () async {
+        await launch(url);
+      },
       child: Icon(
         icon,
         color: color,
