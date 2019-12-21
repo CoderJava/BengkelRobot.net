@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:website_bengkel_robot/src/extension/hover_extensions.dart';
 
-// ignore: must_be_immutable
-class HomeScreenWeb extends StatelessWidget {
+class HomeScreenWeb extends StatefulWidget {
+  @override
+  _HomeScreenWebState createState() => _HomeScreenWebState();
+}
+
+class _HomeScreenWebState extends State<HomeScreenWeb> {
   final double paddingScreen = 32.0;
   final List<String> listImages = [
     'assets/images/img_content_sample_1.jpg',
@@ -42,7 +47,7 @@ class HomeScreenWeb extends StatelessWidget {
             crossAxisCount: 3,
             children: List.generate(
               listImages.length,
-                  (index) {
+              (index) {
                 counterItemLatestPost += 1;
                 if (counterItemLatestPost == 4) {
                   counterItemLatestPost = 1;
@@ -180,41 +185,38 @@ class HomeScreenWeb extends StatelessWidget {
               _buildWidgetSizedBox(height: 28.0),
               Wrap(
                 children: <Widget>[
-                  Icon(
-                    FontAwesomeIcons.facebook,
-                    color: Colors.white,
-                    size: 36.0,
-                  ),
+                  _buildWidgetIconSocialMedia(FontAwesomeIcons.facebook, Colors.white, 36.0, () {
+                    // TODO: do something in here
+                  }),
                   _buildWidgetSizedBox(width: 72.0),
-                  Icon(
-                    FontAwesomeIcons.twitter,
-                    color: Colors.white,
-                    size: 36.0,
-                  ),
+                  _buildWidgetIconSocialMedia(FontAwesomeIcons.twitter, Colors.white, 36.0, () {
+                    // TODO: do something in here  
+                  }),
                   _buildWidgetSizedBox(width: 72.0),
-                  Icon(
-                    FontAwesomeIcons.github,
-                    color: Colors.white,
-                    size: 36.0,
-                  ),
+                  _buildWidgetIconSocialMedia(FontAwesomeIcons.github, Colors.white, 36.0, () {
+                    // TODO: do something in here
+                  }),
                   _buildWidgetSizedBox(width: 72.0),
-                  Icon(
-                    FontAwesomeIcons.instagram,
-                    color: Colors.white,
-                    size: 36.0,
-                  ),
-                  _buildWidgetSizedBox(width: 72.0),
-                  Icon(
-                    FontAwesomeIcons.medium,
-                    color: Colors.white,
-                    size: 36.0,
-                  ),
+                  _buildWidgetIconSocialMedia(FontAwesomeIcons.instagram, Colors.white, 36.0, () {
+                    // TODO: do something in here
+                  }),
                 ],
               )
             ],
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildWidgetIconSocialMedia(IconData icon, Color color, double size, GestureTapCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Icon(
+        icon,
+        color: color,
+        size: size,
+      ).showCursorOnHover.moveUnOnHover,
     );
   }
 
