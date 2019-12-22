@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:website_bengkel_robot/src/bloc/home_bloc.dart';
 import 'package:website_bengkel_robot/src/extension/hover_extensions.dart';
+import 'package:website_bengkel_robot/src/model/latestpost/latest_post_response.dart';
 
 class HomeScreenWeb extends StatefulWidget {
   @override
@@ -9,18 +13,16 @@ class HomeScreenWeb extends StatefulWidget {
 }
 
 class _HomeScreenWebState extends State<HomeScreenWeb> {
+  final HomeBloc _homeBloc = HomeBloc();
   final double paddingScreen = 32.0;
-  final List<String> listImages = [
-    'assets/images/img_content_sample_1.jpg',
-    'assets/images/img_content_sample_2.jpg',
-    'assets/images/img_content_sample_3.jpg',
-    'assets/images/img_content_sample_4.jpg',
-    'assets/images/img_content_sample_5.jpg',
-    'assets/images/img_content_sample_6.jpg',
-  ];
   double widthScreen;
   double heightScreen;
-  int counterItemLatestPost = 0;
+
+  @override
+  void initState() {
+    _homeBloc.add(HomeLoadData());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,76 +32,96 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ListView(
-        children: <Widget>[
-          _buildWidgetWelcome(context),
-          _buildWidgetSizedBox(height: paddingScreen),
-          Padding(
-            padding: EdgeInsets.only(left: paddingScreen + 16.0),
-            child: Text(
-              'Latest Post',
-              style: Theme.of(context).textTheme.headline,
-            ),
-          ),
-          _buildWidgetSizedBox(height: 16.0),
-          GridView.count(
-            padding: EdgeInsets.symmetric(horizontal: paddingScreen),
-            shrinkWrap: true,
-            crossAxisCount: 3,
-            children: List.generate(
-              listImages.length,
-              (index) {
-                counterItemLatestPost += 1;
-                if (counterItemLatestPost == 4) {
-                  counterItemLatestPost = 1;
-                }
-                String image = listImages[index];
-                return Padding(
-                  padding: EdgeInsets.only(
-                    left: 16.0,
-                    right: 16.0,
-                    bottom: paddingScreen,
-                  ),
-                  child: Card(
-                    elevation: 4.0,
-                    child: Column(
-                      children: <Widget>[
-                        _buildWidgetImageCoverItemPost(image),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              _buildWidgetCaptionItemPost(),
-                              Flexible(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 16.0,
-                                    top: 8.0,
-                                    right: 16.0,
-                                  ),
-                                  child: Text(
-                                    'How to Find the Video Games of Your Youth',
-                                    style: Theme.of(context).textTheme.title,
-                                    maxLines: 2,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
+      body: BlocProvider<HomeBloc>(
+        create: (context) => _homeBloc,
+        child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
+          if (state is HomeLoading) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is HomeFailure) {
+            return Center(
+              child: Text('Oops... something went wrong: ${state.errorMessage}'),
+            );
+          } else if (state is HomeSuccess) {
+            return _buildWidgetListContent(context, state.latestPostResponse);
+          } else {
+            return Container();
+          }
+        }),
       ),
     );
   }
 
-  Widget _buildWidgetCaptionItemPost() {
+  Widget _buildWidgetListContent(BuildContext context, LatestPostResponse latestPostResponse) {
+    return ListView(
+      children: <Widget>[
+        _buildWidgetWelcome(context),
+        _buildWidgetSizedBox(height: paddingScreen),
+        Padding(
+          padding: EdgeInsets.only(left: paddingScreen + 16.0),
+          child: Text(
+            'Latest Post',
+            style: Theme.of(context).textTheme.headline,
+          ),
+        ),
+        _buildWidgetSizedBox(height: 16.0),
+        GridView.count(
+          padding: EdgeInsets.symmetric(horizontal: paddingScreen),
+          shrinkWrap: true,
+          crossAxisCount: 3,
+          children: List.generate(
+            latestPostResponse.posts.length,
+            (index) {
+              ItemPost itemPost = latestPostResponse.posts[index];
+              return Padding(
+                padding: EdgeInsets.only(
+                  left: 16.0,
+                  right: 16.0,
+                  bottom: paddingScreen,
+                ),
+                child: Card(
+                  elevation: 4.0,
+                  child: Column(
+                    children: <Widget>[
+                      _buildWidgetImageCoverItemPost(itemPost.banner),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            _buildWidgetCaptionItemPost(itemPost),
+                            Flexible(
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 16.0,
+                                  top: 8.0,
+                                  right: 16.0,
+                                ),
+                                child: Text(
+                                  itemPost.title,
+                                  style: Theme.of(context).textTheme.title,
+                                  maxLines: 2,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildWidgetCaptionItemPost(ItemPost itemPost) {
+    DateTime dateTimePost = DateTime.fromMillisecondsSinceEpoch(itemPost.datetime);
+    String formattedDateTimePost = DateFormat('MMMM dd, yyyy').format(dateTimePost);
+
     return Padding(
       padding: const EdgeInsets.only(
         left: 16.0,
@@ -108,21 +130,21 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
       child: Row(
         children: <Widget>[
           CircleAvatar(
-            backgroundImage: AssetImage('assets/images/img_sample_avatar_2.jpg'),
+            backgroundImage: NetworkImage(itemPost.authorPhoto),
           ),
           _buildWidgetSizedBox(width: 8.0),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Ditta Amelia',
+                itemPost.author,
                 style: TextStyle(
                   color: Colors.grey[700],
                 ),
                 softWrap: true,
               ),
               Text(
-                'December 18, 2019',
+                formattedDateTimePost,
                 style: TextStyle(color: Colors.grey[400]),
               ),
             ],
@@ -138,7 +160,7 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
                 ),
                 _buildWidgetSizedBox(width: 8.0),
                 Text(
-                  '3',
+                  '${itemPost.comment}',
                   style: TextStyle(
                     color: Colors.grey,
                   ),
@@ -156,7 +178,7 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
   Widget _buildWidgetImageCoverItemPost(String image) {
     return Expanded(
       flex: 2,
-      child: Image.asset(
+      child: Image.network(
         image,
         fit: BoxFit.cover,
         width: widthScreen,
@@ -194,7 +216,8 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
                   _buildWidgetSizedBox(width: 72.0),
                   _buildWidgetIconSocialMedia(FontAwesomeIcons.mediumM, Colors.white, 36.0, 'https://medium.com/@kolonel.yudisetiawan'),
                   _buildWidgetSizedBox(width: 72.0),
-                  _buildWidgetIconSocialMedia(FontAwesomeIcons.linkedinIn, Colors.white, 36.0, 'https://www.linkedin.com/in/yudi-setiawan-179401131/'),
+                  _buildWidgetIconSocialMedia(
+                      FontAwesomeIcons.linkedinIn, Colors.white, 36.0, 'https://www.linkedin.com/in/yudi-setiawan-179401131/'),
                 ],
               )
             ],

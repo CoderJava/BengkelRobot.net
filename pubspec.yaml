@@ -23,15 +23,38 @@ dependencies:
   # email schemes.
   url_launcher: ^5.4.1
 
+  # Flutter widgets that make it easy to implement the BLoC design pattern. Built to be used with
+  # the bloc state management package
+  flutter_bloc: ^2.1.1
+
+  # A powerful http client for Dart, which supports interceptors, FormData, Request Cancellation,
+  # File Downloading, Timeout etc.
+  dio: ^3.0.7
+
+  # This package provides message extraction and code generation from translated messages
+  # for the intl package. It's a separate package so as to not require a dependency on analyzer
+  # for all users.
+  intl_translation: ^0.17.7
+
+  # Flutter library to load and cache networ images. Can also be used with placeholder and
+  # error widgets.
+  cached_network_image: ^1.1.3
+
+dependency_overrides:
+  # This package provides a library that performs static analysis of Dart code.
+  # Result conflict from package json_serializable and intl_translation.
+  analyzer: ^0.39.2+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Automatically generate code for converting to and from JSON by annotating Dart classes.
+  json_serializable: ^3.2.4
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+  # Tools to write binaries that run builders.
+  build_runner: ^1.7.2
 
-# The following section is specific to Flutter.
 flutter:
 
   # The following line ensures that the Material Icons font is
