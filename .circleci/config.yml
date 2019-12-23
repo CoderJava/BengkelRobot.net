@@ -6,15 +6,6 @@ jobs:
 
     steps:
       - checkout
-
-      - run:
-          name: Greeting
-          command: echo Hello, world.
-
-      - run:
-          name: Print the Current Time
-          command: date
-
-      - run:
-          name: Run unit test
-          command: flutter test
+      - run: flutter doctor
+      - run: flutter packages get
+      - run: flutter test
