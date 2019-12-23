@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: cirrusci/flutter
 
     steps:
       - checkout
@@ -14,3 +14,7 @@ jobs:
       - run:
           name: Print the Current Time
           command: date
+
+      - run:
+          name: Unit test home_bloc
+          command: dart test/bloc/home_bloc_test.dart
