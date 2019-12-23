@@ -9,7 +9,7 @@ class MediumApiClient {
 
   MediumApiClient() {
     _dio.options.baseUrl = _baseUrl;
-    _dio.interceptors.add(DioLoggingInterceptors(_dio));
+    _dio.interceptors.add(DioLoggingInterceptors());
   }
 
   Future<LatestPostResponse> getLatestPostResponse() async {

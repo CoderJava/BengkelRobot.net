@@ -40,6 +40,10 @@ dependencies:
   # error widgets.
   cached_network_image: ^1.1.3
 
+  # An abstract class that helps to implement equality without needing to explicitly
+  # override == and hashCode.
+  equatable: ^1.0.1
+
 dependency_overrides:
   # This package provides a library that performs static analysis of Dart code.
   # Result conflict from package json_serializable and intl_translation.
@@ -48,6 +52,16 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  # A full featured library for writing and running Dart tests.
+  # test: ^1.9.4
+
+  # Mock library for Dart inspired by Mockito.
+  mockito: ^4.1.1
+
+  # A simple command-line tool to collect test coverage information from Dart VM tests.
+  # It is useful if you need to generate coverage reports locally during development.
+  test_coverage: ^0.3.0
 
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
   json_serializable: ^3.2.4

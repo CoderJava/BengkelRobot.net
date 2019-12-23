@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:website_bengkel_robot/src/bloc/home_bloc.dart';
 import 'package:website_bengkel_robot/src/extension/hover_extensions.dart';
 import 'package:website_bengkel_robot/src/model/latestpost/latest_post_response.dart';
+import 'package:website_bengkel_robot/src/repository/medium_api_repository.dart';
 
 class HomeScreenWeb extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class HomeScreenWeb extends StatefulWidget {
 }
 
 class _HomeScreenWebState extends State<HomeScreenWeb> {
-  final HomeBloc _homeBloc = HomeBloc();
+  final HomeBloc _homeBloc = HomeBloc(MediumApiRepository());
   final double paddingScreen = 32.0;
   double widthScreen;
   double heightScreen;

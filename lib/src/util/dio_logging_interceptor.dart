@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
 
 class DioLoggingInterceptors extends InterceptorsWrapper {
-  final Dio _dio;
 
-  DioLoggingInterceptors(this._dio);
+  DioLoggingInterceptors();
 
   @override
   Future onRequest(RequestOptions options) async {
