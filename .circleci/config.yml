@@ -6,6 +6,15 @@ jobs:
 
     steps:
       - checkout
-      - run: flutter doctor
-      - run: flutter packages get
-      - run: flutter test
+
+      - run:
+          name: Flutter Doctor
+          command: flutter doctor -v
+
+      - run:
+          name: Flutter Packages Get
+          command: flutter packages get
+
+      - run:
+          name: Flutter Test
+          command: flutter test
