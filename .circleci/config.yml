@@ -16,5 +16,5 @@ jobs:
           command: date
 
       - run:
-          name: Unit test home_bloc
-          command: dart test/bloc/home_bloc_test.dart
+          name: Run unit test
+          command: flutter test
