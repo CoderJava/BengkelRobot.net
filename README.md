@@ -1,16 +1,3 @@
-# website_bengkel_robot
-
-Website Bengkel Robot
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[![codecov](https://codecov.io/gh/CoderJava/Flutter-Website-Bengkel-Robot/branch/master/graph/badge.svg?token=pgxXFeIm9l)](https://codecov.io/gh/CoderJava/Flutter-Website-Bengkel-Robot)
+# Flutter Website Bengkel Robot
+Website bengkelrobot.net merupakan website buatan Yudi Setiawan yang dibangun menggunakan Flutter. Flutter merupakan Framework UI yang mampu membuat aplikasi di mobile, web, dan desktop. Pada bulan Desember 2018, Flutter versi 1.0.0 sudah masuk ke stable release. Lalu, pada Desember 2019 Flutter web sudah masuk beta release.
