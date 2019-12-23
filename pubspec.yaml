@@ -53,15 +53,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # A full featured library for writing and running Dart tests.
-  # test: ^1.9.4
-
   # Mock library for Dart inspired by Mockito.
   mockito: ^4.1.1
-
-  # A simple command-line tool to collect test coverage information from Dart VM tests.
-  # It is useful if you need to generate coverage reports locally during development.
-  test_coverage: ^0.3.0
 
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
   json_serializable: ^3.2.4
