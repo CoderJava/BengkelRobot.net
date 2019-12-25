@@ -2,6 +2,9 @@ os:
   - linux
 language: generic
 sudo: false
+branches:
+  only:
+    - master
 addons:
   apt:
     sources:
