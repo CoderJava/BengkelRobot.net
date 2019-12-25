@@ -44,6 +44,9 @@ dependencies:
   # override == and hashCode.
   equatable: ^1.0.1
 
+  # Flutter widget that automatically resizes text to fit perfectly withing its bounds.
+  auto_size_text: ^2.1.0
+
 dependency_overrides:
   # This package provides a library that performs static analysis of Dart code.
   # Result conflict from package json_serializable and intl_translation.

@@ -1,7 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website_bengkel_robot/src/bloc/home_bloc.dart';
 import 'package:website_bengkel_robot/src/extension/hover_extensions.dart';
@@ -83,6 +84,9 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
                 ),
                 child: Card(
                   elevation: 4.0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  ),
                   child: Column(
                     children: <Widget>[
                       _buildWidgetImageCoverItemPost(itemPost.banner),
@@ -95,10 +99,10 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
                               child: Padding(
                                 padding: const EdgeInsets.only(
                                   left: 16.0,
-                                  top: 8.0,
+                                  top: 16.0,
                                   right: 16.0,
                                 ),
-                                child: Text(
+                                child: AutoSizeText(
                                   itemPost.title,
                                   style: Theme.of(context).textTheme.title,
                                   maxLines: 2,
@@ -149,26 +153,6 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
                 style: TextStyle(color: Colors.grey[400]),
               ),
             ],
-          ),
-          Expanded(
-            child: Wrap(
-              alignment: WrapAlignment.end,
-              children: <Widget>[
-                Icon(
-                  FontAwesomeIcons.solidComments,
-                  size: 18.0,
-                  color: Colors.grey[400],
-                ),
-                _buildWidgetSizedBox(width: 8.0),
-                Text(
-                  '${itemPost.comment}',
-                  style: TextStyle(
-                    color: Colors.grey,
-                  ),
-                ),
-                _buildWidgetSizedBox(width: 16.0),
-              ],
-            ),
           ),
         ],
         crossAxisAlignment: CrossAxisAlignment.center,
