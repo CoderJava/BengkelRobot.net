@@ -5,7 +5,7 @@ import 'package:website_bengkel_robot/src/util/dio_logging_interceptor.dart';
 
 class MediumApiClient {
   final Dio _dio = Dio();
-  final String _baseUrl = 'http://bengkelrobot.net:8001';
+  final String _baseUrl = 'https://bengkelrobot.net:8003';
 
   MediumApiClient() {
     _dio.options.baseUrl = _baseUrl;
