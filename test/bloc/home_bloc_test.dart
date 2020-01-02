@@ -32,52 +32,52 @@ main() {
         '''{
             "articles": [
               {
-                "banner": "http://bengkelrobot.net:8001/assets/images/img_content_sample_1.jpg",
+                "banner": "https://bengkelrobot.net:8003/assets/images/img_content_sample_1.jpg",
                 "title": "How to Find the Video Games of Your Youth",
                 "datetime": 1576923710000,
                 "comment": 3,
                 "author": "Ditta Amelia",
-                "author_photo": "http://bengkelrobot.net:8001/assets/images/img_sample_avatar_1.jpg"
+                "author_photo": "http://bengkelrobot.net:8003/assets/images/img_sample_avatar_1.jpg"
               },
               {
-                "banner": "http://bengkelrobot.net:8001/assets/images/img_content_sample_2.jpg",
+                "banner": "https://bengkelrobot.net:8003/assets/images/img_content_sample_2.jpg",
                 "title": "How to Find the Video Games of Your Youth",
                 "datetime": 1576923710000,
                 "comment": 3,
                 "author": "Ditta Amelia",
-                "author_photo": "http://bengkelrobot.net:8001/assets/images/img_sample_avatar_2.jpg"
+                "author_photo": "http://bengkelrobot.net:8003/assets/images/img_sample_avatar_2.jpg"
               },
               {
-                "banner": "http://bengkelrobot.net:8001/assets/images/img_content_sample_3.jpg",
+                "banner": "https://bengkelrobot.net:8003/assets/images/img_content_sample_3.jpg",
                 "title": "How to Find the Video Games of Your Youth",
                 "datetime": 1576923710000,
                 "comment": 3,
                 "author": "Yudi Setiawan",
-                "author_photo": "http://bengkelrobot.net:8001/assets/images/img_sample_avatar_3.jpg"
+                "author_photo": "http://bengkelrobot.net:8003/assets/images/img_sample_avatar_3.jpg"
               },
               {
-                "banner": "http://bengkelrobot.net:8001/assets/images/img_content_sample_4.jpg",
+                "banner": "https://bengkelrobot.net:8003/assets/images/img_content_sample_4.jpg",
                 "title": "How to Find the Video Games of Your Youth",
                 "datetime": 1576923710000,
                 "comment": 3,
                 "author": "Angelica Agnesia",
-                "author_photo": "http://bengkelrobot.net:8001/assets/images/img_sample_avatar_4.jpg"
+                "author_photo": "http://bengkelrobot.net:8003/assets/images/img_sample_avatar_4.jpg"
               },
               {
-                "banner": "http://bengkelrobot.net:8001/assets/images/img_content_sample_5.jpg",
+                "banner": "https://bengkelrobot.net:8003/assets/images/img_content_sample_5.jpg",
                 "title": "How to Find the Video Games of Your Youth",
                 "datetime": 1576923710000,
                 "comment": 3,
                 "author": "Ditta Amelia",
-                "author_photo": "http://bengkelrobot.net:8001/assets/images/img_sample_avatar_1.jpg"
+                "author_photo": "http://bengkelrobot.net:8003/assets/images/img_sample_avatar_1.jpg"
               },
               {
-                "banner": "http://bengkelrobot.net:8001/assets/images/img_content_sample_6.jpg",
+                "banner": "https://bengkelrobot.net:8003/assets/images/img_content_sample_6.jpg",
                 "title": "How to Find the Video Games of Your Youth",
                 "datetime": 1576923710000,
                 "comment": 3,
                 "author": "Ditta Amelia",
-                "author_photo": "http://bengkelrobot.net:8001/assets/images/img_sample_avatar_2.jpg"
+                "author_photo": "http://bengkelrobot.net:8003/assets/images/img_sample_avatar_2.jpg"
               }
             ]
           }''';
