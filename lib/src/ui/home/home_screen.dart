@@ -46,127 +46,122 @@ class HomeScreen extends StatelessWidget {
     return Container(
       width: widthScreen,
       height: kToolbarHeight,
+      padding: const EdgeInsets.symmetric(horizontal: 92.0),
       color: Colors.black.withOpacity(0.6),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Expanded(
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              children: <Widget>[
-                Text(
-                  'BengkelRobot.net',
-                  style: Theme.of(context).textTheme.title.merge(
-                        TextStyle(
-                          color: Colors.white,
-                          fontFamily: fontFamilyLatoThin,
-                          fontSize: 24.0,
-                        ),
+          Wrap(
+            alignment: WrapAlignment.center,
+            children: <Widget>[
+              Text(
+                'BengkelRobot.net',
+                style: Theme.of(context).textTheme.title.merge(
+                      TextStyle(
+                        color: Colors.white,
+                        fontFamily: fontFamilyLatoThin,
+                        fontSize: 24.0,
                       ),
+                    ),
+              ),
+            ],
+          ),
+          Wrap(
+            alignment: WrapAlignment.center,
+            children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  // TODO: do something in here
+                },
+                child: Container(
+                  height: kToolbarHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Home',
+                        style: Theme.of(context).textTheme.title.merge(
+                              TextStyle(
+                                color: Colors.white,
+                                fontFamily: fontFamilyLatoThin,
+                              ),
+                            ),
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Text(''),
-          ),
-          Expanded(
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    // TODO: do something in here
-                  },
-                  child: Container(
-                    height: kToolbarHeight,
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Home',
-                          style: Theme.of(context).textTheme.title.merge(
-                                TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: fontFamilyLatoThin,
-                                ),
+              ).showCursorOnHover.backgroundColorUnOnHover,
+              GestureDetector(
+                onTap: () {
+                  // TODO: do something in here
+                },
+                child: Container(
+                  height: kToolbarHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'About',
+                        style: Theme.of(context).textTheme.title.merge(
+                              TextStyle(
+                                color: Colors.white,
+                                fontFamily: fontFamilyLatoThin,
                               ),
-                        ),
-                      ],
-                    ),
+                            ),
+                      ),
+                    ],
                   ),
-                ).showCursorOnHover.backgroundColorUnOnHover,
-                GestureDetector(
-                  onTap: () {
-                    // TODO: do something in here
-                  },
-                  child: Container(
-                    height: kToolbarHeight,
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'About',
-                          style: Theme.of(context).textTheme.title.merge(
-                                TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: fontFamilyLatoThin,
-                                ),
+                ),
+              ).showCursorOnHover.backgroundColorUnOnHover,
+              GestureDetector(
+                onTap: () {
+                  // TODO: do something in here
+                },
+                child: Container(
+                  height: kToolbarHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Portfolio',
+                        style: Theme.of(context).textTheme.title.merge(
+                              TextStyle(
+                                color: Colors.white,
+                                fontFamily: fontFamilyLatoThin,
                               ),
-                        ),
-                      ],
-                    ),
+                            ),
+                      ),
+                    ],
                   ),
-                ).showCursorOnHover.backgroundColorUnOnHover,
-                GestureDetector(
-                  onTap: () {
-                    // TODO: do something in here
-                  },
-                  child: Container(
-                    height: kToolbarHeight,
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Portfolio',
-                          style: Theme.of(context).textTheme.title.merge(
-                                TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: fontFamilyLatoThin,
-                                ),
+                ),
+              ).showCursorOnHover.backgroundColorUnOnHover,
+              GestureDetector(
+                onTap: () {
+                  // TODO: do something in here
+                },
+                child: Container(
+                  height: kToolbarHeight,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Contact',
+                        style: Theme.of(context).textTheme.title.merge(
+                              TextStyle(
+                                color: Colors.white,
+                                fontFamily: fontFamilyLatoThin,
                               ),
-                        ),
-                      ],
-                    ),
+                            ),
+                      ),
+                    ],
                   ),
-                ).showCursorOnHover.backgroundColorUnOnHover,
-                GestureDetector(
-                  onTap: () {
-                    // TODO: do something in here
-                  },
-                  child: Container(
-                    height: kToolbarHeight,
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Contact',
-                          style: Theme.of(context).textTheme.title.merge(
-                                TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: fontFamilyLatoThin,
-                                ),
-                              ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ).showCursorOnHover.backgroundColorUnOnHover,
-              ],
-            ),
+                ),
+              ).showCursorOnHover.backgroundColorUnOnHover,
+            ],
           ),
         ],
       ),
