@@ -1,6 +1,8 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
+import 'package:website_bengkel_robot/src/widget/background_color_on_hover.dart';
 import 'package:website_bengkel_robot/src/widget/translate_on_hover.dart';
 
 extension HoverExtensions on Widget {
@@ -20,6 +22,12 @@ extension HoverExtensions on Widget {
 
   Widget get moveUnOnHover {
     return TranslateOnHover(
+      child: this,
+    );
+  }
+
+  Widget get backgroundColorUnOnHover {
+    return BackgroundColorOnHover(
       child: this,
     );
   }

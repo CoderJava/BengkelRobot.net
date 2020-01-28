@@ -94,3 +94,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Lato-Thin
+      fonts:
+        - asset: assets/fonts/Lato-Thin.ttf
+    - family: Lato-Regular
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
