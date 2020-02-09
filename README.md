@@ -6,3 +6,6 @@ I am interested in mobile development with Android topics such as Java, Kotlin, 
 Because, Flutter is a cross platform with good performance so I tried to learn it. And now I can
 build web and app with a single code base with Flutter. This is very cool for me.
 This repo is my portfolio.
+
+## Important
+BengkelRobot.net is under development so, some features cannot be used.
