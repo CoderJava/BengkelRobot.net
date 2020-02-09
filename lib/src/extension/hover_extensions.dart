@@ -2,8 +2,7 @@
 import 'dart:html' as html;
 
 import 'package:flutter/material.dart';
-import 'package:website_bengkel_robot/src/widget/background_color_on_hover.dart';
-import 'package:website_bengkel_robot/src/widget/translate_on_hover.dart';
+import 'package:website_bengkel_robot/src/widget/widgets.dart';
 
 extension HoverExtensions on Widget {
   static final appContainer = html.window.document.getElementById('app-container');

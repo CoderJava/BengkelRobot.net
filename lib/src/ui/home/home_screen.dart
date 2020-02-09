@@ -1,11 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:website_bengkel_robot/src/extension/hover_extensions.dart';
+import 'package:website_bengkel_robot/src/widget/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
-  final String fontFamilyLatoThin = 'Lato-Thin';
-  final String fontFamilyLatoRegular = 'Lato-Regular';
+  final String _fontFamilyLatoThin = 'Lato-Thin';
+  final String _fontFamilyLatoRegular = 'Lato-Regular';
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,8 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           _buildWidgetBackground(widthScreen, heightScreen),
-          _buildWidgetNavBar(context, widthScreen),
+          WidgetNavBar(widthScreen, kToolbarHeight, 'Home'),
+          _buildWidgetContent(widthScreen),
         ],
       ),
     );
@@ -29,141 +30,46 @@ class HomeScreen extends StatelessWidget {
       height: heightScreen,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/img_sample_1.jpg'),
+          image: AssetImage('assets/images/img_sample_1.png'),
           fit: BoxFit.cover,
-        ),
-      ),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-        child: Container(
-          color: Colors.white.withOpacity(0.0),
         ),
       ),
     );
   }
 
-  Widget _buildWidgetNavBar(BuildContext context, double widthScreen) {
+  Widget _buildWidgetContent(double widthScreen) {
     return Container(
       width: widthScreen,
-      height: kToolbarHeight,
-      padding: const EdgeInsets.symmetric(horizontal: 92.0),
-      color: Colors.black.withOpacity(0.6),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Wrap(
-            alignment: WrapAlignment.center,
-            children: <Widget>[
-              Text(
-                'BengkelRobot.net',
-                style: Theme.of(context).textTheme.title.merge(
-                      TextStyle(
-                        color: Colors.white,
-                        fontFamily: fontFamilyLatoThin,
-                        fontSize: 24.0,
-                      ),
-                    ),
-              ),
-            ],
+          _buildWidgetDottedLine(widthScreen),
+          WidgetEmptySizedBox(height: 16.0),
+          Text(
+            'Yudi Setiawan',
+            style: TextStyle(color: Colors.white, fontSize: 72.0, fontFamily: _fontFamilyLatoRegular),
           ),
-          Wrap(
-            alignment: WrapAlignment.center,
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  // TODO: do something in here
-                },
-                child: Container(
-                  height: kToolbarHeight,
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Home',
-                        style: Theme.of(context).textTheme.title.merge(
-                              TextStyle(
-                                color: Colors.white,
-                                fontFamily: fontFamilyLatoThin,
-                              ),
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-              ).showCursorOnHover.backgroundColorUnOnHover,
-              GestureDetector(
-                onTap: () {
-                  // TODO: do something in here
-                },
-                child: Container(
-                  height: kToolbarHeight,
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'About',
-                        style: Theme.of(context).textTheme.title.merge(
-                              TextStyle(
-                                color: Colors.white,
-                                fontFamily: fontFamilyLatoThin,
-                              ),
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-              ).showCursorOnHover.backgroundColorUnOnHover,
-              GestureDetector(
-                onTap: () {
-                  // TODO: do something in here
-                },
-                child: Container(
-                  height: kToolbarHeight,
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Portfolio',
-                        style: Theme.of(context).textTheme.title.merge(
-                              TextStyle(
-                                color: Colors.white,
-                                fontFamily: fontFamilyLatoThin,
-                              ),
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-              ).showCursorOnHover.backgroundColorUnOnHover,
-              GestureDetector(
-                onTap: () {
-                  // TODO: do something in here
-                },
-                child: Container(
-                  height: kToolbarHeight,
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Contact',
-                        style: Theme.of(context).textTheme.title.merge(
-                              TextStyle(
-                                color: Colors.white,
-                                fontFamily: fontFamilyLatoThin,
-                              ),
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-              ).showCursorOnHover.backgroundColorUnOnHover,
-            ],
+          Text(
+            'Mobile Software Engineer',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontFamily: _fontFamilyLatoThin,
+            ),
           ),
+          WidgetEmptySizedBox(height: 32.0),
+          _buildWidgetDottedLine(widthScreen),
         ],
+      ),
+    );
+  }
+
+  Widget _buildWidgetDottedLine(double widthScreen) {
+    return SizedBox(
+      width: widthScreen / 2,
+      child: WidgetDottedLine(
+        width: 3,
+        color: Colors.white,
       ),
     );
   }
